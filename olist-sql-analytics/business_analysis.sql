@@ -30,8 +30,8 @@ SELECT customer_id,COUNT(DISTINCT order_id) AS total_orders FROM fact_orders GRO
 
 #Repeat Customer Rate
 #Measure customer retention
-SELECT COUNT(DISTINCT CASE WHEN order_count > 1 THEN customer_id END) * 1.0/ COUNT(DISTINCT customer_id) AS repeat_customer_rate
-FROM (SELECT customer_id,COUNT(DISTINCT order_id) AS order_count FROM fact_orders GROUP BY customer_id) t;
+SELECT COUNT(DISTINCT CASE WHEN order_count > 1 THEN customer_unique_id END) * 1.0 /COUNT(DISTINCT customer_unique_id) AS repeat_customer_rate
+FROM (SELECT customer_unique_id,COUNT(DISTINCT order_id) AS order_count FROM fact_orders GROUP BY customer_unique_id) t;
 
 #Average Delivery Time (Days)
 #Evaluate logistics performance
