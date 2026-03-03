@@ -11,13 +11,23 @@ SELECT COUNT(*) FROM superstore_raw;
 SELECT `Order Date`,`Ship Date` FROM superstore_raw LIMIT 5;
 
 #Add clean DATE columns
-ALTER TABLE superstore_raw ADD COLUMN order_date_clean DATE, ADD COLUMN ship_date_clean DATE;
+ALTER TABLE superstore_raw ADD COLUMN order_date_clean DATE,ADD COLUMN ship_date_clean DATE;
 
 #Convert text → DATE
-UPDATE superstore_raw SET
-  order_date_clean = STR_TO_DATE(`Order Date`, '%m/%d/%Y'),
-  ship_date_clean  = STR_TO_DATE(`Ship Date`, '%m/%d/%Y');
+UPDATE superstore_raw
+SET order_date_clean = 
+    CASE 
+        WHEN `Order Date` LIKE '%/%' 
+        THEN STR_TO_DATE(`Order Date`, '%m/%d/%Y')
+        ELSE STR_TO_DATE(`Order Date`, '%m-%d-%Y')
+    END,
+    
+    ship_date_clean = 
+    CASE 
+        WHEN `Ship Date` LIKE '%/%' 
+        THEN STR_TO_DATE(`Ship Date`, '%m/%d/%Y')
+        ELSE STR_TO_DATE(`Ship Date`, '%m-%d-%Y')
+    END;
   
 #Verify conversion
-SELECT `Order Date`,order_date_clean,`Ship Date`,ship_date_clean FROM superstore_raw LIMIT 5;
-
+SELECT `Order Date`, order_date_clean FROM superstore_raw WHERE order_date_clean IS NULL;
