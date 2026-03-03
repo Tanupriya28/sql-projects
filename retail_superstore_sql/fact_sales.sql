@@ -11,4 +11,14 @@ ON r.Country = l.country AND r.State = l.state AND r.City = l.city AND r.`Postal
 
 SELECT COUNT(*) FROM fact_sales;
 
+#Adding primary key
+ALTER TABLE fact_sales ADD COLUMN sales_id INT AUTO_INCREMENT PRIMARY KEY FIRST;
+ 
+#Not null constraints
+ALTER TABLE fact_sales MODIFY order_date DATE NOT NULL, MODIFY customer_id VARCHAR(20) NOT NULL, MODIFY product_id VARCHAR(20) NOT NULL,
+MODIFY location_id INT NOT NULL,MODIFY sales DECIMAL(10,2) NOT NULL;
+
+#Adding foreign key
+ALTER TABLE fact_sales ADD CONSTRAINT fk_customer FOREIGN KEY (customer_id) REFERENCES dim_customer(customer_id);
+
 SELECT * FROM fact_sales LIMIT 5;
