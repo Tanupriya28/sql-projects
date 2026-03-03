@@ -1,4 +1,4 @@
-# 📦 Olist E-Commerce SQL Analytics Project
+# Olist E-Commerce SQL Analytics Project
 
 An end-to-end SQL analytics and data modeling project built using the Olist Brazilian E-Commerce dataset and MySQL.
 
@@ -6,7 +6,7 @@ This project demonstrates a complete real-world analytics workflow — from raw 
 
 ---
 
-# 📌 Project Overview
+#  Project Overview
 
 This project follows a structured SQL engineering approach:
 
@@ -22,7 +22,7 @@ The raw dataset was preserved throughout the project. All transformations were i
 
 ---
 
-# 🗂 Project Structure
+#  Project Structure
 
 ```
 olist-sql-analytics/
@@ -39,9 +39,9 @@ olist-sql-analytics/
 
 ---
 
-# 🔍 Data Engineering Workflow
+#  Data Engineering Workflow
 
-## 1️⃣ Schema & Data Validation
+## 1️. Schema & Data Validation
 
 - Inspected table structures and row counts  
 - Validated uniqueness of primary identifiers  
@@ -51,7 +51,7 @@ olist-sql-analytics/
 
 ---
 
-## 2️⃣ Non-Destructive Data Cleaning
+## 2️. Non-Destructive Data Cleaning
 
 - Filtered only delivered orders for revenue analysis  
 - Created clean views instead of modifying raw tables  
@@ -67,7 +67,7 @@ Created clean analytical views:
 
 ---
 
-## 3️⃣ Analytical Data Modeling (Star Schema)
+## 3️. Analytical Data Modeling (Star Schema)
 
 Built structured analytical views:
 
@@ -85,7 +85,7 @@ This enables scalable BI-style analytics and structured KPI generation.
 
 ---
 
-# 📊 Business Analysis & KPIs
+# Business Analysis & KPIs
 
 Generated key business metrics including:
 
@@ -111,7 +111,7 @@ Advanced analysis included:
 
 ---
 
-# ⚡ Advanced SQL Concepts Demonstrated
+# Advanced SQL Concepts Demonstrated
 
 - Common Table Expressions (CTEs)
 - Window Functions (RANK, ROW_NUMBER, SUM OVER)
@@ -122,7 +122,7 @@ Advanced analysis included:
 
 ---
 
-# 🚀 Performance & Scalability Enhancements
+#  Performance & Scalability Enhancements
 
 To simulate production-ready analytics systems, the following optimizations were implemented:
 
@@ -138,7 +138,7 @@ Note: MySQL views are not materialized. For large-scale production systems, mate
 
 ---
 
-# 🛠 Tools & Technologies
+#  Tools & Technologies
 
 - MySQL
 - SQL (Joins, Aggregations, Subqueries)
@@ -150,14 +150,14 @@ Note: MySQL views are not materialized. For large-scale production systems, mate
 
 ---
 
-# 📁 Dataset
+#  Dataset
 
 Olist Brazilian E-Commerce Dataset  
 Public dataset available on Kaggle.
 
 ---
 
-# 🎯 Outcome
+#  Outcome
 
 This project demonstrates end-to-end SQL engineering capability — from raw data validation and schema correction to analytical modeling, performance optimization, and business insight generation.
 
