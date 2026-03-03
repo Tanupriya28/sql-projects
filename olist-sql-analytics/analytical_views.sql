@@ -4,9 +4,9 @@ USE olist;
 
 #Fact Orders View
 #Central fact table combining orders, items, customers, and revenue-related fields
-CREATE OR REPLACE VIEW fact_orders AS
-SELECT co.order_id,co.customer_id,co.order_purchase_timestamp,co.order_delivered_customer_date,oi.product_id,oi.seller_id,oi.price,oi.freight_value
-FROM clean_orders co JOIN clean_order_items oi ON co.order_id = oi.order_id;
+CREATE OR REPLACE VIEW fact_orders AS SELECT co.order_id,c.customer_unique_id,co.customer_id,co.order_purchase_timestamp,co.order_delivered_customer_date,
+oi.product_id,oi.seller_id,oi.price,oi.freight_value FROM clean_orders co JOIN clean_order_items oi ON co.order_id = oi.order_id JOIN olist_customers_dataset c
+ON co.customer_id = c.customer_id;
 
 #Customer Dimension
 #Customer attributes used for segmentation and customer-level metrics
