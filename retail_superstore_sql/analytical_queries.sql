@@ -1,3 +1,7 @@
+#Dataset summary
+SELECT  COUNT(*) AS total_transactions, SUM(sales) AS total_revenue, SUM(profit) AS total_profit,COUNT(DISTINCT customer_id) AS unique_customers,
+COUNT(DISTINCT product_id) AS unique_products FROM fact_sales;
+
 #Monthly Sales Trend
 SELECT d.year,d.month,SUM(f.sales) total_sales FROM fact_sales f JOIN dim_date d ON f.order_date = d.date_id GROUP BY d.year, d.month
 ORDER BY d.year, d.month;
@@ -17,6 +21,9 @@ GROUP BY l.region ORDER BY total_sales DESC;
 #Most Profitable Products
 SELECT p.product_name, SUM(f.profit) total_profit FROM fact_sales f JOIN dim_product p ON f.product_id = p.product_id
 GROUP BY p.product_name ORDER BY total_profit DESC LIMIT 10;
+
+#Loss Making Orders
+SELECT COUNT(*) AS loss_orders FROM fact_sales WHERE profit < 0;
 
 #Top Product in Each Category
 SELECT category, product_name, total_sales
